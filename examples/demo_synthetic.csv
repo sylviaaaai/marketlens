@@ -1,0 +1,4 @@
+source,source_product_id,product_name,shop_name,price,displayed_sales,observed_at,data_origin,category,product_url
+synthetic_shop,P001,奶油法式穿戴甲,演示店 A,39.9,已售386,2026-10-08T20:00:00+08:00,synthetic_demo,穿戴甲,
+synthetic_shop,P002,粉色猫眼穿戴甲,演示店 B,55.0,300+,2026-10-08T20:00:00+08:00,synthetic_demo,穿戴甲,
+synthetic_shop,P003,简约裸色穿戴甲,演示店 C,28.0,已售72,2026-10-08T20:00:00+08:00,synthetic_demo,穿戴甲,
