@@ -66,8 +66,25 @@ def test_app_chart_and_empty_database(tmp_path, monkeypatch, record_count):
     assert spec["encoding"]["x"]["sort"] == expected["price_range"].tolist()
     assert spec["encoding"]["y"]["field"] == "number_of_listings"
     assert any("SYNTHETIC" in warning.value for warning in app.warning)
+    assert [metric.value for metric in app.metric] == [str(record_count), str(record_count)]
+
+    app.text_input[0].set_value("奶油法式").run()
+    assert not app.exception
+    assert [metric.value for metric in app.metric] == ["1", "1"]
+    assert app.dataframe[0].value["product_name"].tolist() == ["奶油法式穿戴甲"]
+    assert any("SYNTHETIC" in warning.value for warning in app.warning)
 
     app.text_input[0].set_value("no_synthetic_product_matches_this").run()
     assert not app.exception
     assert not (app.get("vega_lite_chart") or app.get("arrow_vega_lite_chart"))
     assert app.info[0].value == "No matches."
+    assert [metric.value for metric in app.metric] == ["0", "0"]
+    assert any("SYNTHETIC" in warning.value for warning in app.warning)
+
+
+def test_app_missing_database_shows_import_hint(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    app = AppTest.from_file(str(ROOT / "app.py")).run()
+    assert not app.exception
+    assert "No data yet" in app.info[0].value
+    assert not (tmp_path / "marketlens.db").exists()
