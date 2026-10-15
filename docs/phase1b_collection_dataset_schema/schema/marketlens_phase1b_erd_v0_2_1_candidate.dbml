@@ -1,0 +1,338 @@
+// Task 1B: 18 tables / 165 columns / same 34 FKs and 22 full UNIQUEs.
+// SQL also has 2 partial UNIQUE indexes. No fields/tables added.
+// UTC is fixed milliseconds; frozen_at is operation time; optional earlier cutoff
+// lives in selection_rules_json.observation_cutoff_at. Latest NORMAL snapshot wins.
+// SQL-only CHECK/trigger contracts: REPLACE guards, immutable Run identity,
+// cutoff-aware freeze, canonical comment paths, raw/value/precision and POST filters.
+// These comments do NOT implement SQL constraints in dbdiagram.io.
+// Unknown comment identity belongs in observations (comment_id=NULL), not comments.
+// MarketLens Phase 1B — 18-table ERD v0.2.1 CANDIDATE
+// Reconciled against the complete 18-table DBML pasted by user, Oct 13 2026.
+// Baseline: 18 tables / 162 fields; +3 approved columns = 165 fields.
+// Supplied DBML is the structure baseline; companion v0.2 SQL is authoritative for constraints.
+// CHECK constraints, triggers, JSON/UTC requirements, partial unique indexes and freeze rules live in the SQLite SQL file.
+// Do not apply to old marketlens.db; annotations are deferred to a later phase.
+
+Table research_projects {
+  project_id integer [pk]
+  research_question text [not null]
+  category text [not null]
+  created_at text [not null]
+  status text [not null]
+}
+
+Table collection_plans {
+  plan_id integer [pk, increment]
+  project_id integer [not null]
+  plan_name text [not null, note: '系统生成计划名称']
+  source_platform text [not null]
+  search_filters_json text
+  comment_config_json text
+  created_at text [not null]
+}
+
+Table plan_keywords {
+  keyword_id integer [pk, increment]
+  plan_id integer [not null]
+  keyword text [not null, note: '实际搜索词，如护手霜测评']
+  sequence_no integer [not null]
+
+  indexes {
+    (plan_id, sequence_no) [unique]
+    (plan_id, keyword) [unique]
+  }
+}
+
+Table plan_sort_methods {
+  sort_method_id integer [pk, increment]
+  plan_id integer [not null]
+  sort_method text [not null, note: '五种固定排序之一']
+  sequence_no integer [not null]
+
+  indexes {
+    (plan_id, sequence_no) [unique]
+    (plan_id, sort_method) [unique]
+  }
+}
+
+Table collection_runs {
+  run_id integer [pk]
+  plan_id integer [not null]
+  status text [not null]
+  started_at text
+  finished_at text
+  adapter_version text
+  source_version text
+  error_summary text
+}
+
+Table search_requests {
+  search_request_id integer [pk]
+  run_id integer [not null]
+  sequence_no integer [not null]
+  keyword text [not null]
+  sort_method text [not null]
+  filters_json text
+  request_method text [not null]
+  status text [not null]
+  started_at text
+  finished_at text
+  returned_count integer
+
+  indexes {
+    (run_id, keyword, sort_method) [unique]
+    (run_id, sequence_no) [unique]
+  }
+}
+
+Table posts {
+  post_id integer [pk]
+  source_platform text [not null]
+  source_post_id text [not null]
+  first_seen_at text [not null]
+
+  indexes {
+    (source_platform, source_post_id) [unique]
+  }
+}
+
+Table search_hits {
+  search_hit_id integer [pk]
+  search_request_id integer [not null]
+  collection_attempt_id integer [not null]
+  post_id integer [not null]
+  result_position integer [not null]
+  source_index integer
+  access_params_json text
+  raw_artifact_id integer
+  card_title text
+  card_note_type text
+  card_engagement_json text
+  card_cover_json text
+
+  indexes {
+    (collection_attempt_id, result_position) [unique]
+  }
+}
+
+Table post_snapshots {
+  snapshot_id integer [pk]
+  post_id integer [not null]
+  collection_attempt_id integer [not null]
+  observed_at text [not null]
+  title text
+  description text
+  note_type text
+  published_at_raw text
+  published_at text
+  likes_count integer
+  comments_count integer
+  favorites_count integer
+  shares_count integer
+  engagement_raw_json text
+  engagement_parse_json text [note: 'likes/comments/favorites/shares 每项的解析状态与精度']
+  author_source_id text
+  author_display_name text
+  raw_artifact_id integer
+
+  indexes {
+    (snapshot_id, post_id) [unique]
+    (post_id, collection_attempt_id) [unique]
+  }
+}
+
+Table post_media {
+  media_id integer [pk]
+  snapshot_id integer [not null]
+  media_type text [not null]
+  source_field text [not null]
+  position integer [not null]
+  source_url text
+  thumbnail_url text
+  local_path text [note: '可选授权本地缓存路径；后续填充不修改采集观察']
+  media_raw_json text
+
+  indexes {
+    (snapshot_id, source_field, position) [unique]
+  }
+}
+
+Table comments {
+  comment_id integer [pk]
+  post_id integer [not null]
+  source_comment_id text
+  parent_comment_id integer
+  comment_level integer [not null]
+  first_seen_at text [not null]
+
+  indexes {
+    (comment_id, post_id) [unique]
+    (post_id, source_comment_id) [unique]
+  }
+}
+
+Table comment_observations {
+  observation_id integer [pk]
+  comment_id integer
+  post_id integer [not null]
+  collection_attempt_id integer [not null]
+  observed_at text [not null]
+  content text
+  comment_raw_json text
+  parent_observation_id integer [note: '所属同次HTTP的一级评论观察，二级必填']
+  source_path text [not null, note: '本次原始响应路径，如list[0].subComments[1]']
+  created_at_raw text
+  created_at text
+  like_count_raw text
+  like_count integer
+  like_count_precision text
+  comment_level integer [not null]
+  parent_source_comment_id text
+  display_position integer
+  raw_artifact_id integer
+
+  indexes {
+    (collection_attempt_id, source_path) [unique]
+    (observation_id, comment_id) [unique]
+    (observation_id, post_id) [unique]
+  }
+}
+
+Table collection_tasks {
+  task_id integer [pk]
+  run_id integer [not null]
+  task_type text [not null]
+  search_request_id integer
+  post_id integer
+  task_config_json text [not null]
+  sequence_no integer [not null]
+  status text [not null]
+  created_at text [not null]
+  finished_at text
+  // Partial SQLite unique index: ux_collection_tasks_search_request — see companion SQL
+
+  indexes {
+    (run_id, sequence_no) [unique]
+  }
+}
+
+Table collection_attempts {
+  attempt_id integer [pk]
+  task_id integer [not null]
+  attempt_no integer [not null]
+  started_at text [not null]
+  finished_at text
+  duration_ms integer
+  http_method text
+  endpoint text
+  http_status integer
+  status text [not null]
+  error_type text
+  error_message text
+  returned_posts integer
+  returned_top_comments integer
+  returned_replies integer
+  response_summary_json text
+
+  indexes {
+    (task_id, attempt_no) [unique]
+  }
+}
+
+Table raw_artifacts {
+  raw_artifact_id integer [pk]
+  attempt_id integer [not null]
+  artifact_type text [not null]
+  file_path text [not null]
+  content_type text
+  file_size_bytes integer
+  sha256 text
+  saved_at text [not null]
+  storage_status text [not null]
+  protection_status text
+
+  indexes {
+    file_path [unique]
+  }
+}
+
+Table dataset_versions {
+  dataset_id integer [pk]
+  project_id integer [not null]
+  dataset_name text [not null]
+  version text [not null]
+  description text
+  status text [not null]
+  selection_rules_json text
+  source_run_id integer [not null]
+  created_at text [not null]
+  frozen_at text
+  manifest_sha256 text
+
+  indexes {
+    (project_id, dataset_name, version) [unique]
+  }
+}
+
+Table dataset_posts {
+  dataset_post_id integer [pk]
+  dataset_id integer [not null]
+  post_id integer [not null]
+  snapshot_id integer
+  inclusion_status text [not null, note: 'included / detail_unavailable / type_mismatch；异常候选仍保留']
+  added_at text [not null]
+
+  indexes {
+    (dataset_id, post_id) [unique]
+  }
+}
+
+Table dataset_comments {
+  dataset_comment_id integer [pk]
+  dataset_id integer [not null]
+  post_id integer [not null]
+  comment_id integer
+  observation_id integer [not null]
+  added_at text [not null]
+  // Partial SQLite unique index: ux_dataset_comments_identity — see companion SQL
+
+  indexes {
+    (dataset_id, observation_id) [unique]
+  }
+}
+
+// Relationship lines; do not duplicate with inline ref attributes.
+Ref: collection_plans.project_id > research_projects.project_id
+Ref: plan_keywords.plan_id > collection_plans.plan_id
+Ref: plan_sort_methods.plan_id > collection_plans.plan_id
+Ref: collection_runs.plan_id > collection_plans.plan_id
+Ref: search_requests.run_id > collection_runs.run_id
+Ref: search_hits.raw_artifact_id > raw_artifacts.raw_artifact_id
+Ref: search_hits.post_id > posts.post_id
+Ref: search_hits.collection_attempt_id > collection_attempts.attempt_id
+Ref: search_hits.search_request_id > search_requests.search_request_id
+Ref: post_snapshots.raw_artifact_id > raw_artifacts.raw_artifact_id
+Ref: post_snapshots.collection_attempt_id > collection_attempts.attempt_id
+Ref: post_snapshots.post_id > posts.post_id
+Ref: post_media.snapshot_id > post_snapshots.snapshot_id
+Ref: comments.(parent_comment_id, post_id) > comments.(comment_id, post_id)
+Ref: comments.post_id > posts.post_id
+Ref: comment_observations.(comment_id, post_id) > comments.(comment_id, post_id)
+Ref: comment_observations.raw_artifact_id > raw_artifacts.raw_artifact_id
+Ref: comment_observations.parent_observation_id > comment_observations.observation_id
+Ref: comment_observations.collection_attempt_id > collection_attempts.attempt_id
+Ref: comment_observations.post_id > posts.post_id
+Ref: collection_tasks.post_id > posts.post_id
+Ref: collection_tasks.search_request_id > search_requests.search_request_id
+Ref: collection_tasks.run_id > collection_runs.run_id
+Ref: collection_attempts.task_id > collection_tasks.task_id
+Ref: raw_artifacts.attempt_id > collection_attempts.attempt_id
+Ref: dataset_versions.source_run_id > collection_runs.run_id
+Ref: dataset_versions.project_id > research_projects.project_id
+Ref: dataset_posts.(snapshot_id, post_id) > post_snapshots.(snapshot_id, post_id)
+Ref: dataset_posts.post_id > posts.post_id
+Ref: dataset_posts.dataset_id > dataset_versions.dataset_id
+Ref: dataset_comments.(observation_id, comment_id) > comment_observations.(observation_id, comment_id)
+Ref: dataset_comments.(observation_id, post_id) > comment_observations.(observation_id, post_id)
+Ref: dataset_comments.(comment_id, post_id) > comments.(comment_id, post_id)
+Ref: dataset_comments.(dataset_id, post_id) > dataset_posts.(dataset_id, post_id)

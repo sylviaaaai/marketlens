@@ -2,9 +2,62 @@
 
 **Status: Specification V1.0 + Legacy V0.0 Starter** (not yet a complete consumer MVP).
 
+**Phase 1D Final Preflight：** 五种排序均成功返回，两篇有限滚动均取得20个唯一一级评论；“最新”的时间语义及严格去重停止条件仍有证据限制，目标30诊断失败。多Project内存验收及Run统计隔离修复完成。正式采集决策以[最终验收报告](docs/phase1d_xhs_baseline_collection/preflight_validation_report.md)为准，未启动50组。
+
+**2026-10-14 / Phase 1D分阶段增强：** 正式Baseline使用独立库；显式`--start-baseline`仅执行50组搜索并暂停，详情须另行启动且受SQLite完成状态门槛保护。新增阶段检查点、边界暂停及Windows DPAPI加密临时参数缓存，支持同用户跨进程恢复。此次仅离线测试与空库初始化，原Pilot保留，未启动正式采集。见[正式操作说明](docs/phase1d_xhs_baseline_collection/formal_collection.md)。
+
+**2026-10-14 / Phase 1D：粉底液基准采集 Pilot 已通过。** 4组单页搜索保留79条Hit、69篇唯一图文候选；5篇详情保存50条一级评论和29条二级回复，其余64篇未请求。首组500经同Run一次有限恢复成功，失败证据保留。完整50组仅完成离线验证，未正式采集或冻结Dataset；20+10追加控制及跨进程临时访问参数仍有限制。见 [Phase 1D 使用说明](docs/phase1d_xhs_baseline_collection/README.md) 和 [Pilot 报告](docs/phase1d_xhs_baseline_collection/pilot_report.md)。完整回归69 passed。
+
+**2026-10-14 / Phase 1C：真实小红书图文入库 Smoke Test 已通过。** 独立研究库保存20条SearchHit、3个详情快照、13条图片元数据和48条评论观察（一级30、二级18）；旧商品库与页面不变。Dataset尚未构建。运行及数据边界见 [Phase 1C README](docs/phase1c_xhs_ingestion_smoke/README.md)，实测证据见 [Experiment 01](docs/phase1c_xhs_ingestion_smoke/experiment01_report.md)。本地响应和实验库位于Git忽略的local_data目录，不是仓库演示数据。
+
 An evidence-grounded shopping research assistant combining permitted social discussion records, marketplace product information and consumer review evidence. The first case study is moisturizer, but the product schema is intended to be extensible.
 
 ## Start here
+
+### 当前实验目录导航
+
+日常先看 [Phase 1C 实验结果](docs/phase1c_xhs_ingestion_smoke/experiment01_report.md)；要运行或检查数据，看 [Phase 1C 使用说明](docs/phase1c_xhs_ingestion_smoke/README.md)。数据库设计看 [Phase 1B 索引](docs/phase1b_collection_dataset_schema/README.md)。
+
+```text
+marketlens/                         项目根目录
+├─ marketlens/                      Python代码
+│  ├─ adapters/                     小红书服务调用、错误处理、凭据脱敏
+│  ├─ research/                     研究实验代码
+│  │  ├─ database.py                独立实验库连接、建表、事务
+│  │  ├─ normalizers.py             ID、互动量、时间字段解析
+│  │  ├─ collection_pipeline.py     搜索→详情/评论→入库及审计
+│  │  └─ dataset_builder.py         占位文件，尚未实现Dataset
+│  ├─ repository.py                既有商品数据库查询
+│  ├─ product_service.py           既有商品搜索与统计
+│  └─ ingest.py / charts.py        既有CSV导入、图表处理
+├─ scripts/
+│  └─ phase1c_xhs_smoke.py          实验命令入口
+├─ tests/
+│  ├─ research/test_smoke.py        研究采集离线测试，使用合成响应
+│  └─ test_*.py                    既有商品功能测试
+├─ docs/
+│  ├─ phase1c_xhs_ingestion_smoke/  当前实验：README说明 + experiment01_report结果
+│  ├─ phase1b_collection_dataset_schema/
+│  │  ├─ schema/                   当前v0.2.1 SQL与ERD
+│  │  ├─ tests/                    Schema回归脚本
+│  │  ├─ review_inputs/            旧版输入与原始材料，回归依赖
+│  │  └─ reports/                  审核与修复依据，部分被测试读取
+│  ├─ MarketLens_Phase1B_Design_Log_v0.7.md    最新累计设计日志
+│  ├─ MarketLens_Phase1B_Data_Collection_Spec_v0.1.md  原始采集需求
+│  ├─ PRODUCT_SPEC / TECHNICAL_ARCHITECTURE / IMPLEMENTATION_PLAN 等.md
+│  │                               产品、架构、计划、来源登记与工作记录
+│  └─ legacy_v00/                  早期路线与数据可行性文档，平时可跳过
+├─ local_data/phase1c_smoke/        本地真实实验数据，不提交Git
+│  ├─ research_smoke.db            当前实验数据库
+│  ├─ raw/                        4份脱敏响应，与数据库Artifact关联
+│  └─ logs/                       4份证据：请求事件、实验摘要、验收、原文件指纹
+├─ examples/                      合成演示CSV，不是真实实验结果
+├─ marketlens.db                  既有商品数据库
+├─ app.py                         既有商品页面
+└─ .venv/                         本地Python环境，非实验产物
+```
+
+2026-10-14整理：已核对v0.2～v0.6设计日志内容均被v0.7完整覆盖（仅版本行不同），删除5份旧副本及可再生成缓存。当前实验数据和回归依赖保留。后续同一实验优先更新现有README/报告；仅在执行新的真实实验时追加必要证据，不因文字调整复制新版本文档。
 
 - **`CODEX_START_HERE.md`** — prompt to send to Codex. Ask it to inspect and plan first, **not** implement everything.
 - **`AGENTS.md`** — persistent rules for Codex within this repo.
@@ -101,3 +154,13 @@ print(result.listings)
 ## Legacy documents
 
 Earlier merchant-focused notes live under `docs/legacy_v00/` for historical context only. They are superseded by the consumer-facing specification and should not guide new development.
+
+
+## Phase 1D comments and images final closeout (2026-10-14)
+
+Formal Baseline now sends the accepted finite DOM-20 comment configuration through the existing Adapter; Pilot and Phase1C defaults remain unchanged. Focused offline regression: 15 passed, SQLite in memory only. Two Pilot posts: 10 body images and 2 covers downloaded and decoded successfully (813,820 bytes total). Image downloading is NOT connected to formal collection. Four existing database hashes unchanged; formal Run count remains zero. No formal searches, new MCP requests, new SQLite files, commit or push. See [closeout report](docs/phase1d_xhs_baseline_collection/comments_images_final_report.md). Awaiting user review before any further integration.
+
+
+## Phase 1D unified storage integration (2026-10-14)
+
+Formal details now commit text/comments before downloading all returned body images through the existing safe transport. Content-addressed files and recoverable Run manifests retain independent Media associations. The existing CLI adds formal-only --resume-media and Run-scoped --export-run (Project ownership required); SQLite remains authoritative and no Dataset is frozen. Formal default stops after search. Full pytest collection in the no-disk audit profile: 106 passed, 40 skipped because those legacy tests require new file SQLite, 0 failed. Four existing database hashes and DDL unchanged; formal database remains at 0 Run. No real MCP/media requests, formal collection, new SQLite files, commit or push. See [storage integration report](docs/phase1d_xhs_baseline_collection/storage_integration_report.md) and [storage layout](docs/phase1d_xhs_baseline_collection/storage_layout.md). Awaiting user review.

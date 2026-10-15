@@ -9,3 +9,15 @@ secrets.toml
 .streamlit/secrets.toml
 *.log
 data/private/
+local_data/
+.env.*
+!.env.example
+*cookies*.json
+*cookie*.txt
+*.pem
+*.key
+*.sqlite
+*.db-*
+*.sqlite3-*
+auth_token*
+session_state*.json
