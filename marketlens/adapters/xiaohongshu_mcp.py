@@ -82,9 +82,12 @@ class Response:
 class XiaohongshuMCP:
     version = "phase1c-http-v1"
 
-    def __init__(self, auth: str | None, timeout: float = 120):
+    def __init__(self, auth: str | None, timeout: float = 120, *, detail_timeout: float | None = None):
         self._auth = auth
         self.timeout = timeout
+        if detail_timeout is not None and detail_timeout not in (90, 120):
+            raise ValueError("Detail runtime timeout must be 90 or 120 seconds")
+        self.detail_timeout = detail_timeout
         self._opener = build_opener(ProxyHandler({}), NoRedirect())
 
     def request(self, method: str, endpoint: str, body: dict | None = None) -> Response:
@@ -103,7 +106,8 @@ class XiaohongshuMCP:
                       data=json.dumps(body, ensure_ascii=False).encode("utf-8") if body is not None else None)
         try:
             try:
-                response = self._opener.open(req, timeout=self.timeout)
+                timeout = self.detail_timeout if endpoint == "/api/v1/feeds/detail" and self.detail_timeout is not None else self.timeout
+                response = self._opener.open(req, timeout=timeout)
             except HTTPError as exc:
                 response = exc
             with response:

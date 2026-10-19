@@ -100,7 +100,10 @@ def snapshot_fields(note: dict) -> dict:
             **{column: parsed[key]["value"] for key, (_, column) in METRICS.items()}}
 
 
-def comment_stats(payload, sid):
+def comment_stats(payload, sid, *, target_unique=20):
+    """Quality only, never a storage limit. Default preserves the legacy benchmark."""
+    if type(target_unique) is not int or target_unique <= 0:
+        raise ValueError("Comment quality target must be a positive integer")
     note, block = detail_data(payload, sid)
     top = block.get("list", [])
     top = top if isinstance(top, list) else []
@@ -118,4 +121,5 @@ def comment_stats(payload, sid):
             "parents_with_unreturned_replies": sum(n is not None and n > len(p.get("subComments") if isinstance(p.get("subComments"), list) else []) for p, n in zip(parents, advertised)),
             "parents_reply_total_available": sum(n is not None for n in advertised),
             "has_more": block.get("hasMore"), "reached_20_unique": len(set(ids)) >= 20,
+            "target_unique": target_unique, "reached_target_unique": len(set(ids)) >= target_unique,
             "internal_scroll_count": None, "total_display_comments": count(object_or_empty(note.get("interactInfo")).get("commentCount"))}

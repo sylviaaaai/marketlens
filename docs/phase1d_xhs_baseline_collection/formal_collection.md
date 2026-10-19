@@ -40,6 +40,9 @@ python scripts/phase1d_baseline_collect.py --formal --resume 1 --stage search
 # 搜索完成后，显式启动/恢复详情（不再运行搜索）
 python scripts/phase1d_baseline_collect.py --formal --resume 1 --stage details
 
+# 用户明确授权后：详情有限自动重试；累计最多5次，等待180–300秒
+python scripts/phase1d_baseline_collect.py --formal --resume 1 --stage details --auto-retry --retry-max-attempts 5 --retry-min-seconds 180 --retry-max-seconds 300
+
 # 原Pilot仍只读可查
 python scripts/phase1d_baseline_collect.py --inspect
 ```
@@ -68,6 +71,8 @@ SQLite保存每个搜索请求、Task与Attempt的状态。只有请求顺序/�
 
 ## 验证范围
 
+2026-10-15参数统一：正式请求、Plan和通用达标统计均读取 `BaselineConfig.top_comment_target`，默认20，允许20/25/30。恢复以Run保存的Plan为准，不随后来默认值变化；原 `reached_20_unique` 固定20，新增 `target_unique` 和 `reached_target_unique`。详见[参数重构报告](comment_target_refactor_report.md)。下文JSON的20为默认配置示例。
+
 最新收尾见[统一存储集成报告](storage_integration_report.md)与[存储和恢复说明](storage_layout.md)。用户已接受服务端 DOM 目标 20 的有限滚动协议，并决定保存全部可获取正文图片；[Final Preflight报告](preflight_validation_report.md)及[图片验证报告](comments_images_final_report.md)保留为历史实测证据。图片已经接入正式详情流程，首版AI仅预留文字接口。正式采集尚未启动，等待本次代码与离线测试审核。
 
 本次完整回归：`python -m pytest -q` → **80 passed**（本次新增11项）。正式空库18表、0 Run、0 Attempt、integrity_check=ok；原Pilot、Phase1C及旧商品库前后SHA-256一致。检查证据保存在`local_data/phase1d_upgrade_audit/verification.json`。没有执行真实正式采集。
@@ -75,3 +80,24 @@ SQLite保存每个搜索请求、Task与Attempt的状态。只有请求顺序/�
 新增测试覆盖：完整50组搜索后暂停、持久化完成时间、详情门槛、阶段间零交错、请求边界暂停、DPAPI新进程恢复、缓存损坏/上下文错误拒绝刷新、响应提交窗口恢复、默认CLI不建库/不联网、显式正式开关仅搜索、正式库不改Pilot、显式详情不重复搜索。
 
 正式 Baseline 详情现使用 `load_all_comments=true` 和 `comment_config={max_comment_items:20, click_more_replies:false, max_replies_threshold:10, scroll_speed:"normal"}`，通过已有 Adapter 进入 HTTP 请求体。20 是服务端 DOM 滚动目标，不是去重 ID 严格停止点或数据库存储上限。所有自然返回的一级和二级评论均保存，不主动展开回复，不额外请求凑数；每次正式详情的 response_summary_json 记录实际数量、唯一 ID 数、是否达到 20 个唯一一级 ID 和 hasMore。Pilot/Phase1C 保持默认返回模式。正式详情入库后立即处理正文图片，文件与关联分别保存在哈希目录和Manifest；图片失败不回滚详情。可使用同一CLI的 `--formal --resume-media RUN_ID --project-id PROJECT_ID` 独立恢复，或 `--formal --export-run RUN_ID --project-id PROJECT_ID` 导出文字和媒体关联，两者不请求MCP、不写SQLite。正式50组的真实延迟、访问参数寿命及长时服务稳定性尚未实测。
+
+
+## 2026-10-15：Run 1详情有限重试（待用户授权执行）
+
+以上旧验收中的0 Run属于历史时点。当前只读核验为：Run 1的50组搜索已经完成、464篇图文候选待详情、详情Attempt为0，Checkpoint为search_complete/PAUSED。50份DPAPI缓存可在原Windows用户上下文恢复全部464个访问参数；不保证平台端尚未过期。缺失参数时阻断，不自动重搜。
+
+新增自动重试仅在明确指定`--formal --resume RUN_ID --stage details --auto-retry`时启用。只重试明确记录的HTTPError 500/502/503/504，累计最多5次，随机等待180-300秒，等待每秒检查暂停。历史Plan中的max_attempts=2不变，运行时策略另存日志和Checkpoint。401/403/429、登录不明确、未知进行中请求、本地入库错误及证据损坏均停止。重试前再次检查健康与登录，只在明确就绪时继续，不自动登录。成功详情及评论不足20条都不会补抓，图片继续独立恢复。离线155项全部通过；本轮没有执行真实采集。完整行为、证据和恢复步骤见[详情重试验收报告](detail_retry_report.md)。
+
+
+## Run 1 Attempt 164 reviewed recovery (2026-10-15)
+
+Current read-only state supersedes the earlier 0-detail snapshot:102 details succeeded,1 failed,361 pending. Attempt164 is a finished TimeoutError/null and remains historically unchanged. Generic auto-retry still blocks unreviewed timeouts. A one-use explicit review can authorize only its next Attempt, with a safe reason, evidence file binding database/Run/Task/Post/Attempt/raw/Checkpoint, and explicit confirmation that the old server request finished. The blocked Checkpoint is archived before progress advances. A new Attempt consumes the decision before I/O; another timeout requires a new review. Prior attempts still count towards5. `--detail-timeout-seconds 120` is optional and formal-detail-only; other operations keep their previous timeout. No new collection has been executed in this review task. See [Attempt164 review and exact commands](attempt164_timeout_recovery_report.md). Final offline regression:186 passed,0 failed,0 skipped. Four databases, DDL, all606 formal files unchanged.
+
+
+Runtime interval update (2026-10-15): use explicit `--retry-min-seconds 30 --retry-max-seconds 60` for new waits. Existing persisted waits retain their original value and deadline even when outside the new interval; defaults remain180-300 for compatibility. Attempt164 review and120-second detail timeout remain unchanged. See [30-60 pre-resume report and full command](retry_30_60_pre_resume_report.md). No recovery was executed.
+
+
+Source-deletion review (2026-10-15): Run1/Task153/Post108 has two recorded timeouts and a user-reported deleted source. Explicit local-only confirmation now records source_deleted, time, bound evidence and original Checkpoint, then marks this Task cancelled. No HTTP call or automatic resume occurs. Only a valid review permits skipping; cancelled alone is not sufficient. Candidate count stays464, confirmed unavailable is separate from detail success, and final Run closes partial if one source remains unavailable. Existing30-60 retry and120-second detail timeout commands remain applicable to all remaining tasks. See [source-deletion review and confirmation/resume commands](source_deleted_skip_report.md). This change has not been applied to formal data.
+
+
+Generic pending review (2026-10-15): explicit --defer-detail-attempt and --reactivate-detail-attempt local actions reuse original tasks and immutable evidence. Manual classifications are comment_loading_stalled/detail_timeout_unknown, separate from source_deleted. Deferred tasks are partial, never successful or permanently cancelled. Pending work is reported separately; resultPARTIAL remains an unsealed/running SQLite Run for later refill, since sealed Runs cannot reopen. Follow [pending review report](pending_review_report.md) for exact Attempt249=Task237/Post192 commands, stats, lifetime budget and activation rules. Real Run1 has not been labeled or resumed in this task.

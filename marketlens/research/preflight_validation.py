@@ -118,7 +118,7 @@ class Validation:
                     {"sample": index, "comment_target": target, "click_more_replies": False})
                 if not response.ok:
                     return self.stop("DetailFailed;remaining_calls_cancelled")
-                stats = comment_stats(response.payload, sid)
+                stats = comment_stats(response.payload, sid, target_unique=target if target is not None else 20)
                 self.state["comments"].append({"call": event["number"], "sample": index, "target": target, **stats})
                 if index == 1 and target == 20:
                     first_stats = stats
@@ -128,7 +128,7 @@ class Validation:
             response, event = self.call("detail", "sample_1_diagnostic_30", lambda: self.adapter.detail(sid, self.access[sid], comment_target=30), {"sample": 1, "comment_target": 30, "click_more_replies": False})
             if not response.ok:
                 return self.stop("DiagnosticFailed;remaining_calls_cancelled")
-            self.state["comments"].append({"call": event["number"], "sample": 1, "target": 30, **comment_stats(response.payload, sid)})
+            self.state["comments"].append({"call": event["number"], "sample": 1, "target": 30, **comment_stats(response.payload, sid, target_unique=30)})
         self.state.update(capture_finished_at=utc_now(), status="WAITING_FOR_NEW_PROCESS")
         self.save()
         return self.state

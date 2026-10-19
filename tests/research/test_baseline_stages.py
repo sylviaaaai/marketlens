@@ -216,12 +216,13 @@ def test_explicit_cli_start_is_search_only_and_preserves_pilot(tmp_path, monkeyp
     monkeypatch.setattr(adapter, "preflight", lambda: ({"ready": True}, "synthetic_demo"))
     monkeypatch.setattr(cli, "XiaohongshuMCP", lambda *a, **k: adapter)
     monkeypatch.setattr(cli, "load_auth", lambda *a: None)
-    monkeypatch.setattr(cli, "BaselineConfig", lambda **kw: BaselineConfig(interval_seconds=0, **kw))
+    monkeypatch.setattr(cli, "BaselineConfig", lambda **kw: BaselineConfig(**{"interval_seconds": 0, **kw}))
     assert cli.main(["--start-baseline"]) == 0
     assert len(adapter.calls) == 50 and not adapter.detail_ids
     assert hashlib.sha256(cli.DB.read_bytes()).hexdigest() == digest
     # Separate explicit details action; uses encrypted cache, no new searches.
-    assert cli.main(["--formal", "--resume", "1", "--stage", "details"]) == 0
+    # This test checks stage authorization, not real wall-clock pacing.
+    assert cli.main(["--formal", "--resume", "1", "--stage", "details", "--no-detail-pacing"]) == 0
     assert len(adapter.calls) == 50 and len(adapter.detail_ids) == 8
     with pytest.raises(SystemExit):
         cli.main(["--start-baseline"])

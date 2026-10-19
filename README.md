@@ -164,3 +164,45 @@ Formal Baseline now sends the accepted finite DOM-20 comment configuration throu
 ## Phase 1D unified storage integration (2026-10-14)
 
 Formal details now commit text/comments before downloading all returned body images through the existing safe transport. Content-addressed files and recoverable Run manifests retain independent Media associations. The existing CLI adds formal-only --resume-media and Run-scoped --export-run (Project ownership required); SQLite remains authoritative and no Dataset is frozen. Formal default stops after search. Full pytest collection in the no-disk audit profile: 106 passed, 40 skipped because those legacy tests require new file SQLite, 0 failed. Four existing database hashes and DDL unchanged; formal database remains at 0 Run. No real MCP/media requests, formal collection, new SQLite files, commit or push. See [storage integration report](docs/phase1d_xhs_baseline_collection/storage_integration_report.md) and [storage layout](docs/phase1d_xhs_baseline_collection/storage_layout.md). Awaiting user review.
+
+
+## Phase 1D comment target parameter consistency (2026-10-15)
+
+Formal HTTP requests, persisted Plan options and target-aware comment statistics now share BaselineConfig.top_comment_target (default 20; supported 20/25/30). Legacy reached_20_unique keeps its fixed meaning. Saved Run configuration remains authoritative on resume; Pilot and Phase1C behavior is preserved. Related offline regression: 86 passed, 0 failed, 0 skipped; in-memory SQLite and synthetic transport only. Existing DB/DDL hashes unchanged. Read-only audit found pre-existing formal Run 1 (one failed search, 49 pending; no detail attempts); its saved target remains 20. No new formal collection should be started before this Run is reviewed. See [parameter refactor report](docs/phase1d_xhs_baseline_collection/comment_target_refactor_report.md). No collection, commit or push.
+
+
+## Phase 1D bounded detail retries (2026-10-15)
+
+Formal details support opt-in `--auto-retry --retry-max-attempts 5 --retry-min-seconds 180 --retry-max-seconds 300` with `--formal --resume 1 --stage details`. The runtime policy preserves the historical Plan, includes prior attempts, pauses during waits, and never refreshes searches for missing access parameters. Only recorded HTTP 500/502/503/504 are eligible; unsafe or uncertain failures stop. Related isolated offline regression: **155 passed, 0 failed, 0 skipped**. Read-only Run 1 audit: searches 50/50 complete, 464 pending details, no detail attempts; all 464 access entries recoverable with current-user DPAPI. This does not establish platform-side token validity. Existing databases, formal files and DDL unchanged. No real collection, commit or push. See [detail retry report](docs/phase1d_xhs_baseline_collection/detail_retry_report.md). Awaiting explicit collection authorization.
+
+
+## Run 1 Attempt 164 timeout review (2026-10-15)
+
+Run 1 is blocked after 102 successful details: Attempt164 (Task153/Post108, first attempt) is TimeoutError/null with no successful snapshot. Added explicit, evidence-bound, one-use human-reviewed recovery; it never reclassifies the old timeout or automatically approves other timeouts. Optional `--detail-timeout-seconds 120` affects formal details only. Original Plan/config matching, cumulative five-attempt budget, completed-task skipping and independent media recovery remain intact. Final isolated offline regression: **186 passed, 0 failed, 0 skipped**. Existing four databases, DDL and all606 formal files unchanged; no real requests, recovery, commit or push. The prepared evidence file is not authorization. See [Attempt164 recovery review](docs/phase1d_xhs_baseline_collection/attempt164_timeout_recovery_report.md) for the exact command and server-completion confirmation required before real execution.
+
+
+Run1 retry interval update (2026-10-15): explicit runtime 30-60 seconds is now accepted after two lower-bound checks were relaxed to30; defaults remain180-300 and saved schedules retain their exact deadline. Isolated regression:196 passed,0 failed,0 skipped. No real collection or data changes. See [pre-resume report](docs/phase1d_xhs_baseline_collection/retry_30_60_pre_resume_report.md).
+
+
+Run1 source-deletion review (2026-10-15): explicit local-only confirmation is restricted to Run1/Task153/Post108 with reason source_deleted and bound evidence. Task uses existing cancelled state plus immutable audit record; candidates stay464 and confirmed unavailable is counted separately from success. Resume skips this reviewed task and already successful details; final Run is partial when a source is unavailable. Offline regression:216 passed,0 failed,0 skipped. No formal confirmation or recovery executed. See [review and two-step commands](docs/phase1d_xhs_baseline_collection/source_deleted_skip_report.md).
+
+
+Generic pending-review support (2026-10-15): formal failed detail timeouts can be explicitly classified/deferred with immutable audit evidence, then explicitly reactivated for one refill without resetting lifetime attempts. Source-deleted remains separate. With pending work, result is PARTIAL but the SQLite Run stays unsealed/running because Triggers forbid reopening sealed Runs. Attempt249 was read-only verified as Run1/Task237/Post192; current state185 succeeded,1 unavailable,1 failed,277 unrequested. Offline regression:238 passed,0 failed,0 skipped. No real deferral or requests performed. See [pending review report and commands](docs/phase1d_xhs_baseline_collection/pending_review_report.md).
+
+
+
+
+
+
+
+Phase 1D (2026-10-16): formal detail scheduling now supports runtime random buffering, post-success cooldown, interruptible persisted waits and timing logs. Offline regression: 227 passed / 5 skipped. No collection started. See [detail pacing report](docs/phase1d_xhs_baseline_collection/detail_pacing_report.md).
+
+Phase 1D batch pacing: optional `--detail-batch-rest` adds a 60-300s rest after each randomly sampled 15-30 new successful detail tasks. Persisted counts and deadlines survive restarts. Offline regression: 248 passed / 5 skipped. Run 1 remains BLOCKED; no collection started. See the detail pacing report above.
+
+Run 1 formally resumed with explicit user authorization on 2026-10-16 after precise review of Attempt 315. Startup observation: Tasks 302-305 succeeded (HTTP200), pacing and batch rests enabled; collection continuing as of that observation. See [startup report](docs/phase1d_xhs_baseline_collection/run1_resume315_start_report.md). Earlier BLOCKED notes above describe the pre-resume state.
+
+Later Run 1 observation: 418 successful details; user-reviewed Task473 deferred after Attempt489 timeout and manual report of post restriction. Continued remaining41 tasks using the existing policy; deferred count4, confirmed unavailable count1. Original failure evidence retained.
+
+Run 1 refill update (2026-10-16): user-authorized Tasks237/300/301 all succeeded via existing pending-review activation and formal collector (Attempts531-533). Successful details462, remaining deferred1 (Task473), confirmed unavailable1. Original review and failure evidence retained; no repeated search.
+
+2026-10-19: explicit offline Run finalization is implemented (`--check-finalization` / `--finalize-run` with a bound decision file). Following user approval and final backup/evidence checks, authoritative Run 1 was sealed at 11:07:12.731 Asia/Shanghai as `partial`, with Checkpoint `completed / PARTIAL`. Results: 462 successful details, 1 source deletion, 1 banned/restricted permanent skip, 0 pending review; all 21 historical failed Attempts retained. Both pre-seal and independent post-seal backups passed complete verification. No platform requests, Schema migration, Dataset freeze, Commit or Push. See [local finalization design, execution and verification](docs/phase1d_xhs_baseline_collection/local_finalization.md).
