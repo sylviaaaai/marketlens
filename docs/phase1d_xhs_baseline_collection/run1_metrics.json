@@ -1,0 +1,2842 @@
+{
+  "dataset": {
+    "dispositions": [
+      {
+        "reason": "source_deleted",
+        "task_id": 153
+      },
+      {
+        "reason": "banned_or_restricted",
+        "task_id": 473
+      }
+    ],
+    "manifest": "local_data/datasets/phase1d_baseline/v1/dataset_1_phase1d_baseline_v1.json",
+    "manifest_bytes": 3941025,
+    "metadata": {
+      "created_at": "2026-10-20T11:59:34.819Z",
+      "dataset_id": 1,
+      "dataset_name": "phase1d_baseline",
+      "frozen_at": "2026-10-20T11:59:34.819Z",
+      "manifest_sha256": "4981ccb17f74f4976a10cecdff05146434a156d9dbcb7315966c4f99d20e579b",
+      "project_id": 1,
+      "source_run_id": 1,
+      "status": "frozen",
+      "version": "v1"
+    },
+    "metrics": {
+      "candidate_posts": 487,
+      "comments": {
+        "anonymous_observations": 0,
+        "extra_stable_observations": 0,
+        "observations": 10246,
+        "reply_observations": 3657,
+        "stable_identities": 10246,
+        "top_observations": 6589
+      },
+      "completeness": {
+        "comments": {
+          "content": {
+            "blank": 86,
+            "known_zero": null,
+            "missing": 86,
+            "missing_rate": 0.008393519422213547,
+            "null": 0,
+            "precision": null,
+            "total": 10246,
+            "valid": 10160
+          },
+          "created_at": {
+            "blank": 0,
+            "known_zero": null,
+            "missing": 0,
+            "missing_rate": 0.0,
+            "null": 0,
+            "precision": null,
+            "total": 10246,
+            "valid": 10246
+          },
+          "created_at_raw": {
+            "blank": 0,
+            "known_zero": null,
+            "missing": 0,
+            "missing_rate": 0.0,
+            "null": 0,
+            "precision": null,
+            "total": 10246,
+            "valid": 10246
+          },
+          "like_count": {
+            "blank": 0,
+            "known_zero": 6172,
+            "missing": 0,
+            "missing_rate": 0.0,
+            "null": 0,
+            "precision": {
+              "approximate": 2,
+              "exact_display": 10244
+            },
+            "total": 10246,
+            "valid": 10246
+          }
+        },
+        "snapshots": {
+          "comments_count": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 59,
+            "missing_rate": 0.1277056277056277,
+            "null": 59,
+            "precision": {
+              "exact_display": 403,
+              "unparseable": 59
+            },
+            "total": 462,
+            "valid": 403
+          },
+          "description": {
+            "blank": 0,
+            "known_zero": null,
+            "missing": 0,
+            "missing_rate": 0.0,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 462
+          },
+          "favorites_count": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 78,
+            "missing_rate": 0.16883116883116883,
+            "null": 78,
+            "precision": {
+              "exact_display": 384,
+              "unparseable": 78
+            },
+            "total": 462,
+            "valid": 384
+          },
+          "likes_count": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 39,
+            "missing_rate": 0.08441558441558442,
+            "null": 39,
+            "precision": {
+              "approximate": 5,
+              "exact_display": 418,
+              "unparseable": 39
+            },
+            "total": 462,
+            "valid": 423
+          },
+          "published_at": {
+            "blank": 0,
+            "known_zero": null,
+            "missing": 0,
+            "missing_rate": 0.0,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 462
+          },
+          "published_at_raw": {
+            "blank": 0,
+            "known_zero": null,
+            "missing": 0,
+            "missing_rate": 0.0,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 462
+          },
+          "shares_count": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 462,
+            "missing_rate": 1.0,
+            "null": 462,
+            "precision": {
+              "unparseable": 462
+            },
+            "total": 462,
+            "valid": 0
+          },
+          "title": {
+            "blank": 20,
+            "known_zero": null,
+            "missing": 20,
+            "missing_rate": 0.04329004329004329,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 442
+          }
+        }
+      },
+      "composition": {
+        "detail_unavailable": 2,
+        "included": 462,
+        "type_mismatch": 23
+      },
+      "definition": "Frozen Dataset membership only; never global latest or all Run observations.",
+      "media": {
+        "unique_file_bytes": 177890618,
+        "unique_files": 1677,
+        "verified_associations": 1677
+      },
+      "posts_above_target": 0,
+      "posts_at_or_above_target": 290,
+      "posts_below_target": 172,
+      "posts_with_unknown_target": 0,
+      "posts_without_observed_comments": 58,
+      "reply_coverage": {
+        "displayed_replies_sum": 20695,
+        "known_displayed_reply_count": 6589,
+        "parents": 6589,
+        "parents_with_unreturned_replies": 2184,
+        "positive_gap_sum": 17038,
+        "precision": {
+          "exact_display": 6589
+        },
+        "replies_returned_in_parent_response": 3657
+      },
+      "reply_coverage_definition": "Selected parent Observation raw response: displayed subCommentCount vs returned subComments; not the platform population or necessarily all Dataset replies.",
+      "selected_snapshots": 462,
+      "source_snapshot_attempt_has_more": {
+        "false": 173,
+        "true": 289,
+        "unknown": 0
+      },
+      "stable_top_comments_per_post": {
+        "histogram": [
+          {
+            "posts": 58,
+            "value": 0
+          },
+          {
+            "posts": 22,
+            "value": 1
+          },
+          {
+            "posts": 14,
+            "value": 2
+          },
+          {
+            "posts": 7,
+            "value": 3
+          },
+          {
+            "posts": 7,
+            "value": 4
+          },
+          {
+            "posts": 8,
+            "value": 5
+          },
+          {
+            "posts": 7,
+            "value": 6
+          },
+          {
+            "posts": 2,
+            "value": 7
+          },
+          {
+            "posts": 7,
+            "value": 8
+          },
+          {
+            "posts": 1,
+            "value": 9
+          },
+          {
+            "posts": 5,
+            "value": 10
+          },
+          {
+            "posts": 9,
+            "value": 11
+          },
+          {
+            "posts": 5,
+            "value": 12
+          },
+          {
+            "posts": 1,
+            "value": 13
+          },
+          {
+            "posts": 3,
+            "value": 14
+          },
+          {
+            "posts": 4,
+            "value": 15
+          },
+          {
+            "posts": 5,
+            "value": 16
+          },
+          {
+            "posts": 2,
+            "value": 17
+          },
+          {
+            "posts": 4,
+            "value": 18
+          },
+          {
+            "posts": 1,
+            "value": 19
+          },
+          {
+            "posts": 290,
+            "value": 20
+          }
+        ],
+        "max": 20,
+        "mean": 14.261904761904763,
+        "median": 20.0,
+        "min": 0,
+        "n": 462,
+        "p25": 5.25,
+        "p75": 20.0,
+        "p90": 20.0,
+        "p95": 20.0,
+        "quantile_method": "linear; rank=(n-1)*p",
+        "sum": 6589
+      },
+      "target_attainment_rate": 0.6277056277056277,
+      "top_comments_per_post": {
+        "histogram": [
+          {
+            "posts": 58,
+            "value": 0
+          },
+          {
+            "posts": 22,
+            "value": 1
+          },
+          {
+            "posts": 14,
+            "value": 2
+          },
+          {
+            "posts": 7,
+            "value": 3
+          },
+          {
+            "posts": 7,
+            "value": 4
+          },
+          {
+            "posts": 8,
+            "value": 5
+          },
+          {
+            "posts": 7,
+            "value": 6
+          },
+          {
+            "posts": 2,
+            "value": 7
+          },
+          {
+            "posts": 7,
+            "value": 8
+          },
+          {
+            "posts": 1,
+            "value": 9
+          },
+          {
+            "posts": 5,
+            "value": 10
+          },
+          {
+            "posts": 9,
+            "value": 11
+          },
+          {
+            "posts": 5,
+            "value": 12
+          },
+          {
+            "posts": 1,
+            "value": 13
+          },
+          {
+            "posts": 3,
+            "value": 14
+          },
+          {
+            "posts": 4,
+            "value": 15
+          },
+          {
+            "posts": 5,
+            "value": 16
+          },
+          {
+            "posts": 2,
+            "value": 17
+          },
+          {
+            "posts": 4,
+            "value": 18
+          },
+          {
+            "posts": 1,
+            "value": 19
+          },
+          {
+            "posts": 290,
+            "value": 20
+          }
+        ],
+        "max": 20,
+        "mean": 14.261904761904763,
+        "median": 20.0,
+        "min": 0,
+        "n": 462,
+        "p25": 5.25,
+        "p75": 20.0,
+        "p90": 20.0,
+        "p95": 20.0,
+        "quantile_method": "linear; rank=(n-1)*p",
+        "sum": 6589
+      }
+    },
+    "selection_rules": {
+      "candidates": "all_source_run_hits_from_succeeded_or_partial_attempts",
+      "comments": "latest_stable_identity_by_observed_at_then_observation_id;all_anonymous",
+      "observation_cutoff_at": "2026-10-19T03:07:12.731Z",
+      "quality": "retain_blank_text_null_metrics_and_original_parent_context",
+      "rule_version": "dataset_selection_v1",
+      "snapshots": "latest_normal_by_observed_at_then_snapshot_id_in_source_run"
+    },
+    "verification": {
+      "counts": {
+        "anonymous_comments": 0,
+        "comments": 10246,
+        "detail_unavailable": 2,
+        "included": 462,
+        "media": 1677,
+        "posts": 487,
+        "replies": 3657,
+        "snapshots": 462,
+        "top_comments": 6589,
+        "type_mismatch": 23
+      },
+      "integrity": {
+        "foreign_key_check": [],
+        "integrity_check": [
+          "ok"
+        ]
+      },
+      "manifest_sha256": "4981ccb17f74f4976a10cecdff05146434a156d9dbcb7315966c4f99d20e579b",
+      "quality": {
+        "cross_observation_parent_links": 0,
+        "empty_comment_content": 86,
+        "empty_titles": 20,
+        "missing_post_metrics": {
+          "comments_count": 59,
+          "favorites_count": 78,
+          "likes_count": 39,
+          "shares_count": 462
+        }
+      },
+      "simulation": false,
+      "status": "frozen",
+      "verified": true
+    }
+  },
+  "design": {
+    "category": "粉底液",
+    "comment_config": {
+      "click_more_replies": false,
+      "max_comment_items": 20,
+      "max_replies_threshold": 10,
+      "scroll_speed": "normal"
+    },
+    "extra_comment_requests": 0,
+    "interval_seconds": 3.0,
+    "load_all_comments": true,
+    "selection": "first_search_then_result_position",
+    "top_comment_target": 20
+  },
+  "generated_at": "2026-10-20T12:30:56.908+00:00",
+  "provenance": {
+    "git_head": "43a7a4c425f9933d430c32ca9c8764869152701a",
+    "implementation_sha256": {
+      "marketlens/research/dataset_builder.py": "31f456855dd99256c117d1efaee623f34b33166efdd700b5653461d832ab8311",
+      "marketlens/research/normalizers.py": "6ebec0f257dfcbfa4e4b2341e2afed3284b934a7ea101f62dc6795d4831ae4d3",
+      "marketlens/research/run_metrics.py": "c37578c035804dc32c1a5c09585bd7f7d889ae7a30cf96b5946e96733b1e81bd",
+      "marketlens/research/run_report.py": "7bd17fc32ffe52f157d9349cc3c1efcaf5ba9925b6d57d00bf3394e7769b57fd"
+    },
+    "note": "HEAD is repository context; working implementation hashes identify code, including uncommitted files."
+  },
+  "reliability": {
+    "actual_wait_segments": {
+      "after": {
+        "actual_seconds": 1645.7939999999908,
+        "missing_or_invalid_duration": 0,
+        "segments": 598
+      },
+      "batch": {
+        "actual_seconds": 1301.3459999999977,
+        "missing_or_invalid_duration": 0,
+        "segments": 8
+      },
+      "before": {
+        "actual_seconds": 1763.1429999999964,
+        "missing_or_invalid_duration": 0,
+        "segments": 218
+      }
+    },
+    "duration_definition": "Seconds in local collection HTTP client call through response reading/parsing; detail includes service-side comment loading. Excludes pacing, media, health/login checks.",
+    "groups": {
+      "feed_detail": {
+        "attempt_statuses": {
+          "failed": 11,
+          "succeeded": 462
+        },
+        "attempts": 473,
+        "durations_seconds": {
+          "all": {
+            "max": 120.032,
+            "mean": 16.555575052854124,
+            "median": 15.782,
+            "min": 1.719,
+            "n": 473,
+            "p90": 17.7,
+            "p95": 18.293799999999997,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 7830.787000000001
+          },
+          "failed": {
+            "max": 120.032,
+            "mean": 85.04127272727273,
+            "median": 120.0,
+            "min": 1.719,
+            "n": 11,
+            "p90": 120.031,
+            "p95": 120.0315,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 935.4540000000001
+          },
+          "succeeded": {
+            "max": 35.234,
+            "mean": 14.924963203463207,
+            "median": 15.781,
+            "min": 9.157,
+            "n": 462,
+            "p90": 17.6234,
+            "p95": 18.015199999999997,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 6895.333000000001
+          }
+        },
+        "failed_attempts": [
+          {
+            "count": 3,
+            "error_type": "HTTPError",
+            "http_status": 500
+          },
+          {
+            "count": 8,
+            "error_type": "TimeoutError",
+            "http_status": null
+          }
+        ],
+        "first_attempt_success_tasks": 455,
+        "missing_duration_attempts": 0,
+        "retry_success_tasks": 7,
+        "tasks": 464
+      },
+      "search": {
+        "attempt_statuses": {
+          "failed": 10,
+          "succeeded": 50
+        },
+        "attempts": 60,
+        "durations_seconds": {
+          "all": {
+            "max": 60.36,
+            "mean": 15.53545,
+            "median": 8.656500000000001,
+            "min": 1.687,
+            "n": 60,
+            "p90": 60.297,
+            "p95": 60.344,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 932.1270000000001
+          },
+          "failed": {
+            "max": 60.36,
+            "mean": 49.2033,
+            "median": 60.3125,
+            "min": 1.687,
+            "n": 10,
+            "p90": 60.3591,
+            "p95": 60.35955,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 492.03299999999996
+          },
+          "succeeded": {
+            "max": 21.766,
+            "mean": 8.80188,
+            "median": 8.469,
+            "min": 7.141,
+            "n": 50,
+            "p90": 9.8136,
+            "p95": 10.52075,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 440.094
+          }
+        },
+        "failed_attempts": [
+          {
+            "count": 10,
+            "error_type": "HTTPError",
+            "http_status": 500
+          }
+        ],
+        "first_attempt_success_tasks": 40,
+        "missing_duration_attempts": 0,
+        "retry_success_tasks": 10,
+        "tasks": 50
+      }
+    },
+    "journal_sha256": {
+      "baseline_00717cab16f74a7683b330f2597e66e2.json": "1dbf95e93035262cc1cc4929953015de1dc176cfaaa7bd448c5fe8ada0b0c65a",
+      "baseline_0752b7587eb143e993daa7d854b03fb9.json": "6c25e3c4859ddbbe752e5f2f2bb6128c21cdf022c4fd201806e0bd681864be25",
+      "baseline_16ed9b251c014daa90bf7c4554f5f278.json": "83688bf092225eeaf6ec91a23366fd68844c107abeb05af4eaf797cc7cb2b459",
+      "baseline_2bf518374390465aa09fd6af1ff0716a.json": "b416e0125882de6d2dc24832829569c45c9dca21a359a473dce14f1e22aa40e9",
+      "baseline_42be5147cbaf46e7b415e38d30d3b60a.json": "54ca314825a15d0a71eac0e23d0de145867e1f7a068408e5327908eac5a4bd1b",
+      "baseline_4ec7b4ecaeaf419cb00f8760d4b8480d.json": "e0cd60492de0945138e301bdf49aa6e8b69be2c9a85686dca60fc75c4a05eb14",
+      "baseline_5a92b8c2dda54bd7b62e1de8a8f20848.json": "1eb791a9a84521c4aa7aa8253987a4c79bb10f2eb23a4cc5d920e19f7d831510",
+      "baseline_6251ab0f23f8437682f5ca1b9b36512b.json": "247304300e9123ee4ca1c59b5c519507e9fe73b6b301551c0f332b529388387d",
+      "baseline_648569cd0bb0499c95c275677977a584.json": "e4288fc19a40572b8860f87897b63af2d2e62cb8079822002415b8ec9fec5eff",
+      "baseline_64fe6b3b3afa40a7bdd48765ca32506e.json": "f0862b81c0822b1389a0a78ddbd2f5d5c6262696e6a539d0b3ed719695f50bda",
+      "baseline_687c5d0a11e9456ca6137c7d3a1c649a.json": "75acead55326538782af84712cd38a805c8b96fdb74de17d8747b694b5bc9dbb",
+      "baseline_77c67303a2834b33a37e8780b41042e4.json": "cec7501e5cd531f0caeda1f44eed516bf24f564658021f9581bd75a7eeb4c2f7",
+      "baseline_8665d982c5d04a228c137359d7269e1e.json": "47c31107b9a6889aba1693aed997e770abb54c2422fed3a0c1d061c06f6d7109",
+      "baseline_8d46e7e77f8949cd98e3f98adc5ff315.json": "9b2852fdd242825eec55667924078bafc6710f7b594770a873a764e209e74631",
+      "baseline_8e244d1606b049e589dc959c85636e8a.json": "86589b45433c23dd9fe0245d7a2d206af60786ca545cc5c49fc4d4bd8ec5d875",
+      "baseline_912cc725a5dc42ac96ff0301b53507ae.json": "5db32558b1e8f60c8d25823f98862dcd7108ef57dbd157674ae4d3dfaf252bb9",
+      "baseline_ab8110a2b121402cb076b97a470e8399.json": "4877f845f461545d9aebf72e59533e819fe8ab5fb069317e4d1f143e1398cc95",
+      "baseline_cb25aeee90a44ebb8390ffdf7ea347b6.json": "dabf1407ebc8aeec20253a3665e3efa5b17626bb967c80326dae203e19a8a60a",
+      "baseline_e108eeff728b4fb2904580fed56f6988.json": "b9ca7a720b322434bcbf08c9ed56ce8578d0ba8485a9e2675b5323e2bebaa79f",
+      "baseline_eb6fd15b2ada4482ab6fa790c20f1aa6.json": "11738cd54cc32141caa61b917284101b86f0d71f540e4c23bbeceef938495cc2",
+      "baseline_f20a90f09987425b9f366344a3d0eaf3.json": "d6517b7f077324d4f6d814cafb679938b51dabaca4082c4a34e37d477ff01126",
+      "baseline_f62e0c3663d5477b9e3e39805efd12a8.json": "8123f9dc2f8cb767f9af02681d0d3282aa157c0070b22e47db6d946f8cec7937",
+      "baseline_faccbb8bf3534709911684c02f338361.json": "9309244e86570263dc7f32dba9b04e0ce6469bf79fc7a4a86671cff66a2a94a3",
+      "baseline_fcec4b250f8f430c81fb249eaf32e2a6.json": "43a3f54c4efae4e7e12415370aeb9c8db967306350c1882da82179b4976b1049",
+      "detail_pacing_1.jsonl": "1529998b274788e2183773ea7e60b9512d7721b37e26c24248a99f009e8dcb56",
+      "detail_retry_1.jsonl": "0e1f09b2ddb6e6b4e53e041535d82bb9605b9ce84567611726552c31d5899cb9",
+      "detail_review_164.json": "d788bee9fa77650bc234685e0dafe8b013352817d728ea8f390970e0764444ed",
+      "detail_review_313.json": "f633f098b98126c1fe2d45f374a1e68a30e37cecae06ea30fed12b249379e959",
+      "detail_review_315.json": "cf7e98d658cf628b567cd0cf0fd26b8eb40bf9f7e7fd81e6f96314256a708da9",
+      "detail_unavailable_153.json": "70ed9a740156c9c1a59e3f504c9d16160b127e9306e1a2d69d2bcbc0b1e63ff8",
+      "pending_review_237_249.json": "9ad4b75bfb5c69fb9b21cf9aa74026c9969ebe8f95bbb43a069dc95a0710710a",
+      "pending_review_237_249_activation.json": "2999555af07c2f26b8915af2e62e19c7de2e4c95a9564fa26f30205f3159a5ff",
+      "pending_review_300_312.json": "d17f49c73ad316b36700125c4d5616edd146a687882653adad42fcb37ba252bf",
+      "pending_review_300_312_activation.json": "d36a0da64187770be088e63110e351ac5369329363d771edb52fbe6b07f1bce7",
+      "pending_review_301_314.json": "5fdd2f7f22b43d0300d38259fabec5f24f684c046f32ff11a3703aee24c29fad",
+      "pending_review_301_314_activation.json": "60b415c9eb28df0fc68bb901abe2894fc7b6db2472c64c9cd3d33ddfa042c7e6",
+      "pending_review_473_489.json": "d67776cf99ea0fa69d424e2581dd6888dd0ba06b18befe4d1ab9051936d313ee"
+    },
+    "limitations": "Wait segments cover only journaled periods; planned retry delay is not actual waiting; invocation reports are not a complete lifecycle event log.",
+    "logs": {
+      "detail_pacing": {
+        "batch_rest_completed": 8,
+        "batch_rest_scheduled": 8,
+        "first_record_at": "2026-10-16T07:20:30.367Z",
+        "last_record_at": "2026-10-16T12:10:37.142Z",
+        "records": 2090
+      },
+      "detail_retry": {
+        "first_record_at": "2026-10-15T06:11:23.776Z",
+        "last_record_at": "2026-10-16T12:08:57.060Z",
+        "records": 964,
+        "retry_delay": {
+          "actual_seconds": null,
+          "missing_or_invalid_duration": 0,
+          "planned_seconds": 594.8341826855178,
+          "schedules": 9
+        }
+      }
+    },
+    "manual_intervention": {
+      "task_ids": [
+        153,
+        237,
+        300,
+        301,
+        302,
+        473
+      ],
+      "unique_tasks": 6
+    },
+    "other_run_invocation_reports_excluded": 0,
+    "saved_invocation_results": {
+      "BLOCKED": 18,
+      "PARTIAL": 2,
+      "PAUSED": 1
+    },
+    "source": "Run-scoped Task/Attempt SQL and available local journals only.",
+    "timing": {
+      "capture_span_seconds": 122042.999,
+      "creation_to_seal_seconds": 348750.749,
+      "first_attempt_started_at": "2026-10-15T02:14:44.988Z",
+      "last_attempt_finished_at": "2026-10-16T12:08:47.987Z",
+      "recorded_attempt_duration_sum_seconds": 8762.914,
+      "run_sealed_at": "2026-10-19T03:07:12.731Z",
+      "run_started_at": "2026-10-15T02:14:41.982Z"
+    },
+    "unavailable": [
+      "Full-Run actual waiting/active time",
+      "Exact complete pause/resume count",
+      "Internal platform HTTP duration and scroll count"
+    ],
+    "unscoped_invocation_reports_excluded": 3,
+    "warnings": []
+  },
+  "report_format": "marketlens_run_final_report_v1",
+  "run": {
+    "analyzed_at": "2026-10-20T12:30:56.908+00:00",
+    "comments": {
+      "metrics": {
+        "anonymous_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "anonymous_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "anonymous_reply_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "anonymous_reply_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "anonymous_top_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "anonymous_top_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "comment_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "comment_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 10246,
+          "warnings": []
+        },
+        "extra_stable_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "extra_stable_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "has_more": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "has_more",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Read saved Attempt summary; only JSON booleans are known.",
+          "unit": "posts_by_state",
+          "value": {
+            "false": 173,
+            "true": 289,
+            "unknown": 0
+          },
+          "warnings": []
+        },
+        "identities_with_repeat_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "identities_with_repeat_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "posts_above_target": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_above_target",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "posts_at_or_above_target": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_at_or_above_target",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 290,
+          "warnings": []
+        },
+        "posts_below_target": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_below_target",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 172,
+          "warnings": []
+        },
+        "posts_evaluated": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_evaluated",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 462,
+          "warnings": []
+        },
+        "posts_with_unknown_target": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_with_unknown_target",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "posts_without_observed_comments": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_without_observed_comments",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 58,
+          "warnings": []
+        },
+        "posts_without_observed_top_comments": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_without_observed_top_comments",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Target uses unique stable top IDs; anonymous observations cannot establish target attainment.",
+          "unit": "count",
+          "value": 58,
+          "warnings": []
+        },
+        "relationship_errors": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "relationship_errors",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "errors_by_type",
+          "value": {
+            "identity_binding": 0,
+            "parent_identity": 0,
+            "parent_observation": 0,
+            "parent_source_id": 0
+          },
+          "warnings": []
+        },
+        "reply_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "reply_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 3657,
+          "warnings": []
+        },
+        "stable_comment_identities": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "stable_comment_identities",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 10246,
+          "warnings": []
+        },
+        "stable_reply_identities": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "stable_reply_identities",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 3657,
+          "warnings": []
+        },
+        "stable_top_comments_per_post": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "stable_top_comments_per_post",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only.",
+          "unit": "distribution",
+          "value": {
+            "histogram": [
+              {
+                "posts": 58,
+                "value": 0
+              },
+              {
+                "posts": 22,
+                "value": 1
+              },
+              {
+                "posts": 14,
+                "value": 2
+              },
+              {
+                "posts": 7,
+                "value": 3
+              },
+              {
+                "posts": 7,
+                "value": 4
+              },
+              {
+                "posts": 8,
+                "value": 5
+              },
+              {
+                "posts": 7,
+                "value": 6
+              },
+              {
+                "posts": 2,
+                "value": 7
+              },
+              {
+                "posts": 7,
+                "value": 8
+              },
+              {
+                "posts": 1,
+                "value": 9
+              },
+              {
+                "posts": 5,
+                "value": 10
+              },
+              {
+                "posts": 9,
+                "value": 11
+              },
+              {
+                "posts": 5,
+                "value": 12
+              },
+              {
+                "posts": 1,
+                "value": 13
+              },
+              {
+                "posts": 3,
+                "value": 14
+              },
+              {
+                "posts": 4,
+                "value": 15
+              },
+              {
+                "posts": 5,
+                "value": 16
+              },
+              {
+                "posts": 2,
+                "value": 17
+              },
+              {
+                "posts": 4,
+                "value": 18
+              },
+              {
+                "posts": 1,
+                "value": 19
+              },
+              {
+                "posts": 290,
+                "value": 20
+              }
+            ],
+            "max": 20,
+            "mean": 14.261904761904763,
+            "median": 20.0,
+            "min": 0,
+            "n": 462,
+            "p25": 5.25,
+            "p75": 20.0,
+            "p90": 20.0,
+            "p95": 20.0,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 6589
+          },
+          "warnings": []
+        },
+        "stable_top_identities": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "stable_top_identities",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 6589,
+          "warnings": []
+        },
+        "target_attainment_rate": {
+          "denominator": 462,
+          "missing": "Unknown targets excluded from denominator; zero denominator => null.",
+          "name": "target_attainment_rate",
+          "numerator": 290,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only.",
+          "unit": "ratio",
+          "value": 0.6277056277056277,
+          "warnings": []
+        },
+        "top_comments_per_post": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "top_comments_per_post",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "One latest successful normal Snapshot per Post in this Run, ordered by observed_at then snapshot_id; comments from that Snapshot's Attempt only. Stable IDs deduplicated; anonymous observations retained separately.",
+          "unit": "distribution",
+          "value": {
+            "histogram": [
+              {
+                "posts": 58,
+                "value": 0
+              },
+              {
+                "posts": 22,
+                "value": 1
+              },
+              {
+                "posts": 14,
+                "value": 2
+              },
+              {
+                "posts": 7,
+                "value": 3
+              },
+              {
+                "posts": 7,
+                "value": 4
+              },
+              {
+                "posts": 8,
+                "value": 5
+              },
+              {
+                "posts": 7,
+                "value": 6
+              },
+              {
+                "posts": 2,
+                "value": 7
+              },
+              {
+                "posts": 7,
+                "value": 8
+              },
+              {
+                "posts": 1,
+                "value": 9
+              },
+              {
+                "posts": 5,
+                "value": 10
+              },
+              {
+                "posts": 9,
+                "value": 11
+              },
+              {
+                "posts": 5,
+                "value": 12
+              },
+              {
+                "posts": 1,
+                "value": 13
+              },
+              {
+                "posts": 3,
+                "value": 14
+              },
+              {
+                "posts": 4,
+                "value": 15
+              },
+              {
+                "posts": 5,
+                "value": 16
+              },
+              {
+                "posts": 2,
+                "value": 17
+              },
+              {
+                "posts": 4,
+                "value": 18
+              },
+              {
+                "posts": 1,
+                "value": 19
+              },
+              {
+                "posts": 290,
+                "value": 20
+              }
+            ],
+            "max": 20,
+            "mean": 14.261904761904763,
+            "median": 20.0,
+            "min": 0,
+            "n": 462,
+            "p25": 5.25,
+            "p75": 20.0,
+            "p90": 20.0,
+            "p95": 20.0,
+            "quantile_method": "linear; rank=(n-1)*p",
+            "sum": 6589
+          },
+          "warnings": []
+        },
+        "top_observations": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "top_observations",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 6589,
+          "warnings": []
+        }
+      },
+      "scope": {
+        "project_id": 1,
+        "run_id": 1
+      },
+      "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+      "source": [
+        "comment_observations",
+        "comments",
+        "post_snapshots",
+        "Attempt summaries"
+      ],
+      "tables": {},
+      "warnings": [
+        "No observed comments does not establish that the source has no comments.",
+        "Finite returned comments and has_more do not establish complete comment coverage."
+      ]
+    },
+    "completeness": {
+      "metrics": {
+        "comment.content": {
+          "denominator": 10246,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "comment.content",
+          "numerator": 86,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=comment observation; field=content.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 86,
+            "known_zero": 0,
+            "missing": 86,
+            "null": 0,
+            "precision": null,
+            "total": 10246,
+            "valid": 10160
+          },
+          "warnings": [
+            "Missing observations retained; do not impute zero or delete records."
+          ]
+        },
+        "comment.content.missing_rate": {
+          "denominator": 10246,
+          "missing": "Zero observations => null rate.",
+          "name": "comment.content.missing_rate",
+          "numerator": 86,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.008393519422213547,
+          "warnings": []
+        },
+        "comment.created_at": {
+          "denominator": 10246,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "comment.created_at",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=comment observation; field=created_at.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "precision": null,
+            "total": 10246,
+            "valid": 10246
+          },
+          "warnings": []
+        },
+        "comment.created_at.missing_rate": {
+          "denominator": 10246,
+          "missing": "Zero observations => null rate.",
+          "name": "comment.created_at.missing_rate",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.0,
+          "warnings": []
+        },
+        "comment.created_at_raw": {
+          "denominator": 10246,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "comment.created_at_raw",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=comment observation; field=created_at_raw.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "precision": null,
+            "total": 10246,
+            "valid": 10246
+          },
+          "warnings": []
+        },
+        "comment.created_at_raw.missing_rate": {
+          "denominator": 10246,
+          "missing": "Zero observations => null rate.",
+          "name": "comment.created_at_raw.missing_rate",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.0,
+          "warnings": []
+        },
+        "comment.like_count": {
+          "denominator": 10246,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "comment.like_count",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=comment observation; field=like_count.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 6172,
+            "missing": 0,
+            "null": 0,
+            "precision": {
+              "approximate": 2,
+              "exact_display": 10244
+            },
+            "total": 10246,
+            "valid": 10246
+          },
+          "warnings": []
+        },
+        "comment.like_count.missing_rate": {
+          "denominator": 10246,
+          "missing": "Zero observations => null rate.",
+          "name": "comment.like_count.missing_rate",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.0,
+          "warnings": []
+        },
+        "snapshot.comments_count": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.comments_count",
+          "numerator": 59,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=comments_count.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 59,
+            "null": 59,
+            "precision": {
+              "exact_display": 403,
+              "unparseable": 59
+            },
+            "total": 462,
+            "valid": 403
+          },
+          "warnings": [
+            "Missing observations retained; do not impute zero or delete records."
+          ]
+        },
+        "snapshot.comments_count.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.comments_count.missing_rate",
+          "numerator": 59,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.1277056277056277,
+          "warnings": []
+        },
+        "snapshot.description": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.description",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=description.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 462
+          },
+          "warnings": []
+        },
+        "snapshot.description.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.description.missing_rate",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.0,
+          "warnings": []
+        },
+        "snapshot.favorites_count": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.favorites_count",
+          "numerator": 78,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=favorites_count.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 78,
+            "null": 78,
+            "precision": {
+              "exact_display": 384,
+              "unparseable": 78
+            },
+            "total": 462,
+            "valid": 384
+          },
+          "warnings": [
+            "Missing observations retained; do not impute zero or delete records."
+          ]
+        },
+        "snapshot.favorites_count.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.favorites_count.missing_rate",
+          "numerator": 78,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.16883116883116883,
+          "warnings": []
+        },
+        "snapshot.likes_count": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.likes_count",
+          "numerator": 39,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=likes_count.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 39,
+            "null": 39,
+            "precision": {
+              "approximate": 5,
+              "exact_display": 418,
+              "unparseable": 39
+            },
+            "total": 462,
+            "valid": 423
+          },
+          "warnings": [
+            "Missing observations retained; do not impute zero or delete records."
+          ]
+        },
+        "snapshot.likes_count.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.likes_count.missing_rate",
+          "numerator": 39,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.08441558441558442,
+          "warnings": []
+        },
+        "snapshot.published_at": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.published_at",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=published_at.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 462
+          },
+          "warnings": []
+        },
+        "snapshot.published_at.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.published_at.missing_rate",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.0,
+          "warnings": []
+        },
+        "snapshot.published_at_raw": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.published_at_raw",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=published_at_raw.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 462
+          },
+          "warnings": []
+        },
+        "snapshot.published_at_raw.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.published_at_raw.missing_rate",
+          "numerator": 0,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.0,
+          "warnings": []
+        },
+        "snapshot.shares_count": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.shares_count",
+          "numerator": 462,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=shares_count.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 0,
+            "known_zero": 0,
+            "missing": 462,
+            "null": 462,
+            "precision": {
+              "unparseable": 462
+            },
+            "total": 462,
+            "valid": 0
+          },
+          "warnings": [
+            "Missing observations retained; do not impute zero or delete records."
+          ]
+        },
+        "snapshot.shares_count.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.shares_count.missing_rate",
+          "numerator": 462,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 1.0,
+          "warnings": []
+        },
+        "snapshot.title": {
+          "denominator": 462,
+          "missing": "NULL/blank text missing; numeric NULL unknown, actual zero retained; precision categories retained.",
+          "name": "snapshot.title",
+          "numerator": 20,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run. Unit=snapshot observation; field=title.",
+          "unit": "field_completeness",
+          "value": {
+            "blank": 20,
+            "known_zero": 0,
+            "missing": 20,
+            "null": 0,
+            "precision": null,
+            "total": 462,
+            "valid": 442
+          },
+          "warnings": [
+            "Missing observations retained; do not impute zero or delete records."
+          ]
+        },
+        "snapshot.title.missing_rate": {
+          "denominator": 462,
+          "missing": "Zero observations => null rate.",
+          "name": "snapshot.title.missing_rate",
+          "numerator": 20,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.04329004329004329,
+          "warnings": []
+        }
+      },
+      "scope": {
+        "project_id": 1,
+        "run_id": 1
+      },
+      "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+      "source": [
+        "post_snapshots",
+        "comment_observations",
+        "engagement_parse_json"
+      ],
+      "tables": {},
+      "warnings": [
+        "Missing fields flagged, records retained: snapshot.title, snapshot.likes_count, snapshot.comments_count, snapshot.favorites_count, snapshot.shares_count, comment.content"
+      ]
+    },
+    "contract_version": "run_metrics_v1",
+    "detail": {
+      "finalization": {
+        "checkpoint_synchronized": true,
+        "recovery_required": false,
+        "sealed": true,
+        "sha256": "b3b9f001e99cc5fd13cd1ae9e2534cfffa874554d74356d9f9008a4f64652e0d",
+        "validated": true
+      },
+      "metrics": {
+        "candidates_without_detail": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "candidates_without_detail",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 25,
+          "warnings": []
+        },
+        "detail_tasks": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "detail_tasks",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 464,
+          "warnings": []
+        },
+        "normal_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "normal_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 464,
+          "warnings": []
+        },
+        "normal_candidates_without_detail": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "normal_candidates_without_detail",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 2,
+          "warnings": []
+        },
+        "normal_detail_success_rate": {
+          "denominator": 464,
+          "missing": "No normal candidates => null rate.",
+          "name": "normal_detail_success_rate",
+          "numerator": 462,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "ratio",
+          "value": 0.9956896551724138,
+          "warnings": []
+        },
+        "permanently_skipped_restricted": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "permanently_skipped_restricted",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 1,
+          "warnings": []
+        },
+        "posts_with_multiple_snapshots": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_with_multiple_snapshots",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "posts_with_successful_snapshot": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "posts_with_successful_snapshot",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 462,
+          "warnings": []
+        },
+        "source_deleted": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "source_deleted",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 1,
+          "warnings": []
+        },
+        "successful_detail_tasks": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "successful_detail_tasks",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 462,
+          "warnings": []
+        },
+        "successful_posts_outside_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "successful_posts_outside_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "successful_snapshots": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "successful_snapshots",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 462,
+          "warnings": []
+        },
+        "unresolved_detail_tasks": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "unresolved_detail_tasks",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "video_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "video_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+          "unit": "count",
+          "value": 23,
+          "warnings": []
+        }
+      },
+      "scope": {
+        "project_id": 1,
+        "run_id": 1
+      },
+      "selection": "All normal Snapshots/comments from succeeded feed_detail Attempts in this Run.",
+      "source": [
+        "search_hits",
+        "collection_tasks",
+        "post_snapshots",
+        "finalization/review evidence"
+      ],
+      "tables": {},
+      "warnings": []
+    },
+    "scope": {
+      "project_id": 1,
+      "run_id": 1
+    },
+    "search": {
+      "metrics": {
+        "conflicting_type_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "conflicting_type_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "normal_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "normal_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 464,
+          "warnings": []
+        },
+        "repeat_hit_rate": {
+          "denominator": 975,
+          "missing": "Zero hits => null rate.",
+          "name": "repeat_hit_rate",
+          "numerator": 488,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "ratio",
+          "value": 0.5005128205128205,
+          "warnings": []
+        },
+        "search_attempt_statuses": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "search_attempt_statuses",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "attempts_by_status",
+          "value": {
+            "failed": 10,
+            "succeeded": 50
+          },
+          "warnings": []
+        },
+        "search_attempts": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "search_attempts",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 60,
+          "warnings": []
+        },
+        "search_hits": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "search_hits",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 975,
+          "warnings": []
+        },
+        "search_requests": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "search_requests",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 50,
+          "warnings": []
+        },
+        "successful_search_attempts": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "successful_search_attempts",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 50,
+          "warnings": []
+        },
+        "successful_search_requests": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "successful_search_requests",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 50,
+          "warnings": []
+        },
+        "unique_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "unique_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 487,
+          "warnings": []
+        },
+        "unknown_type_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "unknown_type_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 0,
+          "warnings": []
+        },
+        "video_candidates": {
+          "denominator": null,
+          "missing": "Missing values are not replaced with zero.",
+          "name": "video_candidates",
+          "numerator": null,
+          "scope": {
+            "project_id": 1,
+            "run_id": 1
+          },
+          "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+          "unit": "count",
+          "value": 23,
+          "warnings": []
+        }
+      },
+      "scope": {
+        "project_id": 1,
+        "run_id": 1
+      },
+      "selection": "All persisted search Hits in this Run; unique candidate key=post_id.",
+      "source": [
+        "search_requests",
+        "search_hits",
+        "collection_tasks",
+        "collection_attempts"
+      ],
+      "table_definitions": {
+        "exclusive_candidates": "Seen under exactly one keyword/sort, independent of execution order.",
+        "jaccard": "intersection/union; empty union => null.",
+        "new_candidates": "Not seen before this request in sequence_no/search_request_id order."
+      },
+      "tables": {
+        "discovery_timeline": [
+          {
+            "cumulative_candidates": 20,
+            "hits": 20,
+            "keyword": "粉底液使用感受",
+            "new_candidates": 20,
+            "search_request_id": 1,
+            "sequence_no": 1,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 39,
+            "hits": 19,
+            "keyword": "粉底液使用感受",
+            "new_candidates": 19,
+            "search_request_id": 2,
+            "sequence_no": 2,
+            "sort_method": "最新",
+            "unique_candidates": 19
+          },
+          {
+            "cumulative_candidates": 59,
+            "hits": 20,
+            "keyword": "粉底液使用感受",
+            "new_candidates": 20,
+            "search_request_id": 3,
+            "sequence_no": 3,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 71,
+            "hits": 20,
+            "keyword": "粉底液使用感受",
+            "new_candidates": 12,
+            "search_request_id": 4,
+            "sequence_no": 4,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 77,
+            "hits": 20,
+            "keyword": "粉底液使用感受",
+            "new_candidates": 6,
+            "search_request_id": 5,
+            "sequence_no": 5,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 92,
+            "hits": 20,
+            "keyword": "粉底液测评",
+            "new_candidates": 15,
+            "search_request_id": 6,
+            "sequence_no": 6,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 109,
+            "hits": 20,
+            "keyword": "粉底液测评",
+            "new_candidates": 17,
+            "search_request_id": 7,
+            "sequence_no": 7,
+            "sort_method": "最新",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 120,
+            "hits": 20,
+            "keyword": "粉底液测评",
+            "new_candidates": 11,
+            "search_request_id": 8,
+            "sequence_no": 8,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 126,
+            "hits": 20,
+            "keyword": "粉底液测评",
+            "new_candidates": 6,
+            "search_request_id": 9,
+            "sequence_no": 9,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 129,
+            "hits": 20,
+            "keyword": "粉底液测评",
+            "new_candidates": 3,
+            "search_request_id": 10,
+            "sequence_no": 10,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 143,
+            "hits": 20,
+            "keyword": "粉底液踩雷",
+            "new_candidates": 14,
+            "search_request_id": 11,
+            "sequence_no": 11,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 160,
+            "hits": 20,
+            "keyword": "粉底液踩雷",
+            "new_candidates": 17,
+            "search_request_id": 12,
+            "sequence_no": 12,
+            "sort_method": "最新",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 175,
+            "hits": 20,
+            "keyword": "粉底液踩雷",
+            "new_candidates": 15,
+            "search_request_id": 13,
+            "sequence_no": 13,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 180,
+            "hits": 20,
+            "keyword": "粉底液踩雷",
+            "new_candidates": 5,
+            "search_request_id": 14,
+            "sequence_no": 14,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 183,
+            "hits": 20,
+            "keyword": "粉底液踩雷",
+            "new_candidates": 3,
+            "search_request_id": 15,
+            "sequence_no": 15,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 194,
+            "hits": 20,
+            "keyword": "粉底液推荐",
+            "new_candidates": 11,
+            "search_request_id": 16,
+            "sequence_no": 16,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 211,
+            "hits": 20,
+            "keyword": "粉底液推荐",
+            "new_candidates": 17,
+            "search_request_id": 17,
+            "sequence_no": 17,
+            "sort_method": "最新",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 222,
+            "hits": 20,
+            "keyword": "粉底液推荐",
+            "new_candidates": 11,
+            "search_request_id": 18,
+            "sequence_no": 18,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 233,
+            "hits": 20,
+            "keyword": "粉底液推荐",
+            "new_candidates": 11,
+            "search_request_id": 19,
+            "sequence_no": 19,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 237,
+            "hits": 20,
+            "keyword": "粉底液推荐",
+            "new_candidates": 4,
+            "search_request_id": 20,
+            "sequence_no": 20,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 246,
+            "hits": 20,
+            "keyword": "粉底液种草",
+            "new_candidates": 9,
+            "search_request_id": 21,
+            "sequence_no": 21,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 263,
+            "hits": 20,
+            "keyword": "粉底液种草",
+            "new_candidates": 17,
+            "search_request_id": 22,
+            "sequence_no": 22,
+            "sort_method": "最新",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 272,
+            "hits": 20,
+            "keyword": "粉底液种草",
+            "new_candidates": 9,
+            "search_request_id": 23,
+            "sequence_no": 23,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 282,
+            "hits": 20,
+            "keyword": "粉底液种草",
+            "new_candidates": 10,
+            "search_request_id": 24,
+            "sequence_no": 24,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 284,
+            "hits": 20,
+            "keyword": "粉底液种草",
+            "new_candidates": 2,
+            "search_request_id": 25,
+            "sequence_no": 25,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 284,
+            "hits": 0,
+            "keyword": "粉底液回购",
+            "new_candidates": 0,
+            "search_request_id": 26,
+            "sequence_no": 26,
+            "sort_method": "综合",
+            "unique_candidates": 0
+          },
+          {
+            "cumulative_candidates": 301,
+            "hits": 18,
+            "keyword": "粉底液回购",
+            "new_candidates": 17,
+            "search_request_id": 27,
+            "sequence_no": 27,
+            "sort_method": "最新",
+            "unique_candidates": 18
+          },
+          {
+            "cumulative_candidates": 315,
+            "hits": 20,
+            "keyword": "粉底液回购",
+            "new_candidates": 14,
+            "search_request_id": 28,
+            "sequence_no": 28,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 322,
+            "hits": 20,
+            "keyword": "粉底液回购",
+            "new_candidates": 7,
+            "search_request_id": 29,
+            "sequence_no": 29,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 322,
+            "hits": 20,
+            "keyword": "粉底液回购",
+            "new_candidates": 0,
+            "search_request_id": 30,
+            "sequence_no": 30,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 335,
+            "hits": 20,
+            "keyword": "粉底液盘点",
+            "new_candidates": 13,
+            "search_request_id": 31,
+            "sequence_no": 31,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 351,
+            "hits": 19,
+            "keyword": "粉底液盘点",
+            "new_candidates": 16,
+            "search_request_id": 32,
+            "sequence_no": 32,
+            "sort_method": "最新",
+            "unique_candidates": 19
+          },
+          {
+            "cumulative_candidates": 361,
+            "hits": 20,
+            "keyword": "粉底液盘点",
+            "new_candidates": 10,
+            "search_request_id": 33,
+            "sequence_no": 33,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 366,
+            "hits": 20,
+            "keyword": "粉底液盘点",
+            "new_candidates": 5,
+            "search_request_id": 34,
+            "sequence_no": 34,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 369,
+            "hits": 20,
+            "keyword": "粉底液盘点",
+            "new_candidates": 3,
+            "search_request_id": 35,
+            "sequence_no": 35,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 376,
+            "hits": 20,
+            "keyword": "粉底液对比",
+            "new_candidates": 7,
+            "search_request_id": 36,
+            "sequence_no": 36,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 392,
+            "hits": 20,
+            "keyword": "粉底液对比",
+            "new_candidates": 16,
+            "search_request_id": 37,
+            "sequence_no": 37,
+            "sort_method": "最新",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 397,
+            "hits": 20,
+            "keyword": "粉底液对比",
+            "new_candidates": 5,
+            "search_request_id": 38,
+            "sequence_no": 38,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 401,
+            "hits": 20,
+            "keyword": "粉底液对比",
+            "new_candidates": 4,
+            "search_request_id": 39,
+            "sequence_no": 39,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 402,
+            "hits": 20,
+            "keyword": "粉底液对比",
+            "new_candidates": 1,
+            "search_request_id": 40,
+            "sequence_no": 40,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 405,
+            "hits": 20,
+            "keyword": "粉底液",
+            "new_candidates": 3,
+            "search_request_id": 41,
+            "sequence_no": 41,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 412,
+            "hits": 20,
+            "keyword": "粉底液",
+            "new_candidates": 7,
+            "search_request_id": 42,
+            "sequence_no": 42,
+            "sort_method": "最新",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 420,
+            "hits": 20,
+            "keyword": "粉底液",
+            "new_candidates": 8,
+            "search_request_id": 43,
+            "sequence_no": 43,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 431,
+            "hits": 20,
+            "keyword": "粉底液",
+            "new_candidates": 11,
+            "search_request_id": 44,
+            "sequence_no": 44,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 432,
+            "hits": 20,
+            "keyword": "粉底液",
+            "new_candidates": 1,
+            "search_request_id": 45,
+            "sequence_no": 45,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 443,
+            "hits": 20,
+            "keyword": "粉底液购买",
+            "new_candidates": 11,
+            "search_request_id": 46,
+            "sequence_no": 46,
+            "sort_method": "综合",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 460,
+            "hits": 19,
+            "keyword": "粉底液购买",
+            "new_candidates": 17,
+            "search_request_id": 47,
+            "sequence_no": 47,
+            "sort_method": "最新",
+            "unique_candidates": 19
+          },
+          {
+            "cumulative_candidates": 471,
+            "hits": 20,
+            "keyword": "粉底液购买",
+            "new_candidates": 11,
+            "search_request_id": 48,
+            "sequence_no": 48,
+            "sort_method": "最多点赞",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 477,
+            "hits": 20,
+            "keyword": "粉底液购买",
+            "new_candidates": 6,
+            "search_request_id": 49,
+            "sequence_no": 49,
+            "sort_method": "最多评论",
+            "unique_candidates": 20
+          },
+          {
+            "cumulative_candidates": 487,
+            "hits": 20,
+            "keyword": "粉底液购买",
+            "new_candidates": 10,
+            "search_request_id": 50,
+            "sequence_no": 50,
+            "sort_method": "最多收藏",
+            "unique_candidates": 20
+          }
+        ],
+        "keywords": [
+          {
+            "exclusive_candidates": 41,
+            "hits": 99,
+            "keyword": "粉底液使用感受",
+            "unique_candidates": 77
+          },
+          {
+            "exclusive_candidates": 26,
+            "hits": 100,
+            "keyword": "粉底液测评",
+            "unique_candidates": 68
+          },
+          {
+            "exclusive_candidates": 52,
+            "hits": 100,
+            "keyword": "粉底液踩雷",
+            "unique_candidates": 60
+          },
+          {
+            "exclusive_candidates": 38,
+            "hits": 100,
+            "keyword": "粉底液推荐",
+            "unique_candidates": 76
+          },
+          {
+            "exclusive_candidates": 36,
+            "hits": 100,
+            "keyword": "粉底液种草",
+            "unique_candidates": 74
+          },
+          {
+            "exclusive_candidates": 30,
+            "hits": 78,
+            "keyword": "粉底液回购",
+            "unique_candidates": 43
+          },
+          {
+            "exclusive_candidates": 34,
+            "hits": 99,
+            "keyword": "粉底液盘点",
+            "unique_candidates": 76
+          },
+          {
+            "exclusive_candidates": 28,
+            "hits": 100,
+            "keyword": "粉底液对比",
+            "unique_candidates": 71
+          },
+          {
+            "exclusive_candidates": 29,
+            "hits": 100,
+            "keyword": "粉底液",
+            "unique_candidates": 78
+          },
+          {
+            "exclusive_candidates": 55,
+            "hits": 99,
+            "keyword": "粉底液购买",
+            "unique_candidates": 78
+          }
+        ],
+        "sort_overlap": [
+          {
+            "intersection": 9,
+            "jaccard": 0.03180212014134275,
+            "left": "综合",
+            "right": "最新",
+            "union": 283
+          },
+          {
+            "intersection": 15,
+            "jaccard": 0.06302521008403361,
+            "left": "综合",
+            "right": "最多点赞",
+            "union": 238
+          },
+          {
+            "intersection": 26,
+            "jaccard": 0.10612244897959183,
+            "left": "综合",
+            "right": "最多评论",
+            "union": 245
+          },
+          {
+            "intersection": 14,
+            "jaccard": 0.06086956521739131,
+            "left": "综合",
+            "right": "最多收藏",
+            "union": 230
+          },
+          {
+            "intersection": 8,
+            "jaccard": 0.02711864406779661,
+            "left": "最新",
+            "right": "最多点赞",
+            "union": 295
+          },
+          {
+            "intersection": 5,
+            "jaccard": 0.015822784810126583,
+            "left": "最新",
+            "right": "最多评论",
+            "union": 316
+          },
+          {
+            "intersection": 5,
+            "jaccard": 0.01730103806228374,
+            "left": "最新",
+            "right": "最多收藏",
+            "union": 289
+          },
+          {
+            "intersection": 69,
+            "jaccard": 0.323943661971831,
+            "left": "最多点赞",
+            "right": "最多评论",
+            "union": 213
+          },
+          {
+            "intersection": 82,
+            "jaccard": 0.47398843930635837,
+            "left": "最多点赞",
+            "right": "最多收藏",
+            "union": 173
+          },
+          {
+            "intersection": 62,
+            "jaccard": 0.2938388625592417,
+            "left": "最多评论",
+            "right": "最多收藏",
+            "union": 211
+          }
+        ],
+        "sorts": [
+          {
+            "exclusive_candidates": 81,
+            "hits": 180,
+            "sort_method": "综合",
+            "unique_candidates": 121
+          },
+          {
+            "exclusive_candidates": 156,
+            "hits": 195,
+            "sort_method": "最新",
+            "unique_candidates": 171
+          },
+          {
+            "exclusive_candidates": 30,
+            "hits": 200,
+            "sort_method": "最多点赞",
+            "unique_candidates": 132
+          },
+          {
+            "exclusive_candidates": 57,
+            "hits": 200,
+            "sort_method": "最多评论",
+            "unique_candidates": 150
+          },
+          {
+            "exclusive_candidates": 27,
+            "hits": 200,
+            "sort_method": "最多收藏",
+            "unique_candidates": 123
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "source": {
+      "access": "mode=ro;query_only;read_transaction",
+      "database": "local_data/phase1d_formal_baseline/research_baseline.db",
+      "run_evidence_sha256": "b1f74bd90ea393234f848d93b1f3bbfe120ecbd996127d407868bc38f6bacd6f",
+      "run_finished_at": "2026-10-19T03:07:12.731Z",
+      "run_started_at": "2026-10-15T02:14:41.982Z",
+      "run_status": "partial"
+    },
+    "warnings": [
+      "Run metrics describe collected observations, not a frozen Dataset or platform population."
+    ]
+  },
+  "scope": {
+    "dataset_id": 1,
+    "project_id": 1,
+    "run_id": 1
+  },
+  "verified_run_raw_artifacts": {
+    "declared_bytes": 6087278,
+    "records": 533
+  }
+}
