@@ -166,6 +166,10 @@ Dataset versions and manifests support reproducibility within the controlled loc
 
 "In Development" identifies the next-stage roadmap, not a delivered or evaluated capability. Existing manual collection-exception review is not an implemented annotation workflow. Model accuracy and downstream insight quality have not yet been established.
 
+## Third-Party Attribution
+
+The collection adapter uses the HTTP API exposed by [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp), with local research integration based on version `v2.5.5`. That project is licensed under [Apache-2.0](https://github.com/xpzouying/xiaohongshu-mcp/blob/v2.5.5/LICENSE). MarketLens maintains its own collection orchestration, research storage, dataset versioning, and reporting code. The upstream software license does not establish permission to access platform data or redistribute source content.
+
 ## Technical Documentation
 
 - [Run 1 final report](docs/phase1d_xhs_baseline_collection/run1_final_report.md) and [aggregate metrics](docs/phase1d_xhs_baseline_collection/run1_metrics.json) - current baseline results and reproduction parameters.
@@ -176,6 +180,6 @@ Dataset versions and manifests support reproducibility within the controlled loc
 - [Local finalization](docs/phase1d_xhs_baseline_collection/local_finalization.md) - sealing decisions and verification.
 - [Work log](docs/WORK_LOG.md) - chronological implementation and validation history.
 - [Original product specification](docs/PRODUCT_SPEC.md), [architecture proposal](docs/TECHNICAL_ARCHITECTURE.md), and [implementation plan](docs/IMPLEMENTATION_PLAN.md) - historical shopping-assistant design context, not current feature-completion claims.
-- [Data source register](docs/DATA_SOURCE_REGISTER.md) - historical source-access review; it predates the implemented collector and is not evidence of current collection or redistribution permission.
+- [Data source register](docs/DATA_SOURCE_REGISTER.md) - implementation status and unresolved platform-access and source-data redistribution permissions.
 
 Historical reports describe their own validation stages. Use the final Run 1 report and current source code for the completed baseline rather than treating earlier "not yet collected/frozen" notes as its current state.

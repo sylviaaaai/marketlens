@@ -21,3 +21,11 @@ local_data/
 *.sqlite3-*
 auth_token*
 session_state*.json
+
+# Sensitive caches and private evidence outside the standard local_data tree
+*.dpapi
+**/private_access/
+*.sqlite-*
+*cookie*.json
+secrets*.json
+credentials*.json
